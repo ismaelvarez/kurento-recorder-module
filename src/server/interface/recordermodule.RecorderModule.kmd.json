@@ -3,7 +3,7 @@
     {
       "name": "RecorderModule",
       "extends": "OpenCVFilter",
-      "doc": "RecorderModule interface. Documentation about the module",
+      "doc": "Save frames into the filesystem.",
       "constructor": {
         "doc": "Create an element",
         "params": [
@@ -12,9 +12,48 @@
             "doc": "the parent :rom:cls:`MediaPipeline`",
             "type": "MediaPipeline",
             "final": true
+          },
+          {
+            "name": "path",
+            "doc": "Path to the filesystem",
+            "type": "String"
+          },
+          {
+            "name": "filename",
+            "doc": "Name of the file without extension",
+            "type": "String"
           }
         ]
-      }
+      }, 
+      "properties" : [
+        {
+          "name": "path",
+          "doc": "Path to the filesystem",
+          "type": "String"
+        }, 
+        {
+          "name": "filename",
+          "doc": "Name of the file without extension",
+          "type": "String"
+        }
+      ],
+      "events" : [
+        "RecorderModuleFrameSaved"
+      ]
+    }
+  ],
+  "events" : [
+    {
+      "properties" : [
+        {
+          "name" : "pathToFile",
+          "doc" : "Path of the file",
+          "type" : "String"
+        }
+      ],
+      "extends" : "Media",
+      "name" : "RecorderModuleFrameSaved",
+      "doc" : "Event raise when a frame is saved"
     }
   ]
 }
