@@ -9,9 +9,9 @@ cmake ..
 make
 ```
 
-Deb Package
-Root folder
+To compile and build for Ubuntu
 ```linux
+cd ..
 dpkg-buildpackage -us -uc
 ```
 
